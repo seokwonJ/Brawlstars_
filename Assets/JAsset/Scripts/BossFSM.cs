@@ -8,12 +8,9 @@ using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class JBoss : MonoBehaviour
+public class BossFSM : MonoBehaviour
 {
 
-
-
-    // Enemy ���
     enum EnemyState
     {
         Idle,
@@ -409,26 +406,7 @@ public class JBoss : MonoBehaviour
 
     
 
-    //void Return()
-    //{
-    //    // ���� �ʱ� ��ġ������ �Ÿ��� 0.1f �̻��̶�� �ʱ� ��ġ ������ �̵��Ѵ�.
-    //    if (Vector3.Distance(transform.position, originPos) > 0.1f)
-    //    {
-    //        Vector3 dir = (originPos - transform.position).normalized;
-    //        cc.Move(dir * moveSpeed * Time.deltaTime);
-    //    }
-    //    // �׷��� �ʴٸ�, �ڽ��� ��ġ�� �ʱ� ��ġ�� �����ϰ� ���� ���¸� ���� ��ȯ�Ѵ�.
-    //    else
-    //    {
-    //        transform.position = originPos;
-    //        // hp�� �ٽ� ȸ���Ѵ�.
-    //        hp = maxHp;
-    //        m_State = EnemyState.Idle;
-    //        print("���� ��ȯ: Return-> Idle");
-    //    }
-    //}
 
-    // ������ ���� �Լ�
     public void HitEnemy(int hitPower)
     {
         if (m_State == EnemyState.Damaged || m_State == EnemyState.Die || m_State == EnemyState.Return)
@@ -698,33 +676,6 @@ public class JBoss : MonoBehaviour
 
             player = nearestEnemy.gameObject.transform;
             PY = nearestEnemy.gameObject;
-            // Raycast�� ���� �þ߿� �ִ��� Ȯ��
-            //RaycastHit hit;
-            //if (Physics.Raycast(transform.position, (nearestEnemy.transform.position - transform.position).normalized, out hit, 100f))
-            //{
-            //    // print(hit.transform.gameObject.name + " / nearestEnemy : " + nearestEnemy.transform.gameObject.name); ;
-
-            //    if (hit.collider.gameObject == nearestEnemy.gameObject)
-            //    {
-            //        // ���� �������� �ִ� �Լ� ȣ�� (�� ������Ʈ�� �����Ǿ� �־�� ��)
-            //        //Debug.Log("Enemy hit: " + nearestEnemy.name);
-            //        //nearestEnemy.GetComponent<enemy>().TakeDamage(attackDamage);
-            //        //GetComponent<PlayerFire>();
-
-            //        player = nearestEnemy.gameObject.transform;
-            //        PY = nearestEnemy.gameObject;
-            //    }
-            //    else
-            //    {
-            //        player = nearEnemy.transform;
-            //        PY = nearEnemy.gameObject;
-            //    }
-            //}
-            //else
-            //{
-            //    player = nearEnemy.transform;
-            //    PY = nearEnemy.gameObject;
-            //}
         }
         else
         {

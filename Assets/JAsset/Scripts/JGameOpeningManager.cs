@@ -17,7 +17,7 @@ public class JGameOpeningManager : MonoBehaviour
     }
     public void OnClickmain()
     {
-        // JSampleScene ·ÎµåÇÏÀÚ
-        SceneManager.LoadScene("JSampleScene");
+        // JSampleScene ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½
+        SceneManager.LoadScene("PlayScene");
     }
 }

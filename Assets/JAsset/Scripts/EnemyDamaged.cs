@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JAttacked : MonoBehaviour
+public class EnemyDamaged : MonoBehaviour
 {
     public SkinnedMeshRenderer[] mr;
 

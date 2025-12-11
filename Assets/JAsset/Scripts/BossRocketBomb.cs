@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JBomb : MonoBehaviour
+public class BossRocketBomb : MonoBehaviour
 {
     GameObject player;
     public GameObject bombFire;

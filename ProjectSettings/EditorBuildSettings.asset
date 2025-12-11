@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/JAsset/Scenes/OpeningScene.unity
     guid: 9adb4dae683628e44b83124767cf2308
   - enabled: 1
-    path: Assets/JAsset/Scenes/JSampleScene.unity
+    path: Assets/JAsset/Scenes/PlayScene.unity
     guid: b4ad963c36ad2af4bb061d7d94e20ba6
   - enabled: 1
     path: Assets/JAsset/Scenes/ClearScene.unity
