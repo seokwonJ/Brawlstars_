@@ -243,26 +243,6 @@ public class JEnemyFSM : MonoBehaviour
         }
     }
 
-    //void Return()
-    //{
-    //    // 만일 초기 위치에서의 거리가 0.1f 이상이라면 초기 위치 쪽으로 이동한다.
-    //    if (Vector3.Distance(transform.position, originPos) > 0.1f)
-    //    {
-    //        Vector3 dir = (originPos - transform.position).normalized;
-    //        cc.Move(dir * moveSpeed * Time.deltaTime);
-    //    }
-    //    // 그렇지 않다면, 자신의 위치를 초기 위치로 조정하고 현재 상태를 대기로 전환한다.
-    //    else
-    //    {
-    //        transform.position = originPos;
-    //        // hp를 다시 회복한다.
-    //        hp = maxHp;
-    //        m_State = EnemyState.Idle;
-    //        print("상태 전환: Return-> Idle");
-    //    }
-    //}
-
-    // 데미지 실행 함수
     public void HitEnemy(int hitPower)
     {
         if (m_State == EnemyState.Damaged || m_State == EnemyState.Die || m_State == EnemyState.Return)

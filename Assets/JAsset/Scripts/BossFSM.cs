@@ -62,9 +62,9 @@ public class BossFSM : MonoBehaviour
 
     public float maxHp = 1000;
 
-    public bool aa = true;
+    public bool activeSkill1 = true;
 
-    public bool bb = true;
+    public bool activeSkill2 = true;
 
     public float skillTiming = 15f;
     public float currentTiming = 0f;
@@ -77,10 +77,8 @@ public class BossFSM : MonoBehaviour
 
     public GameObject bomb;
 
-    // ����ȿ������(Prefab)
     public GameObject exploFactory;
 
-    // ������̼� ������Ʈ ����
     NavMeshAgent smith;
     Rigidbody rb;
 
@@ -97,11 +95,8 @@ public class BossFSM : MonoBehaviour
     GameObject nearEnemy;
     public LayerMask Enemy;
 
-
     void Start()
     {
-        //mat =  mr1.material;
-        //mat.color = Color.white;
 
         // ������ ���Ӵ� ���´� ���(Idle)�� �Ѵ�.
         m_State = EnemyState.Idle;
@@ -206,24 +201,12 @@ public class BossFSM : MonoBehaviour
 
     void Move()
     {
-        //// ���� ���� ��ġ�� �ʱ� ��ġ���� �̵� ���� ������ �Ѿ�ٸ�..
-        //if (Vector3.Distance(transform.position, originPos) > moveDistance)
-        //{
-        //    // ���� ���¸� ����(Return)�� ��ȯ�Ѵ�.
-        //    m_State = EnemyState.Return;
-        //    print("���� ��ȯ: Move -> Return");
-        //}
+
         animator.SetBool("isAttack", false);
 
         // ���� �÷��̾���� �Ÿ��� ���� ���� ���̶�� �÷��̷��� ���� �̵��Ѵ�.
         if (Vector3.Distance(transform.position, player.position) > attackDistance - 0.5f)
         {
-            //// �̵� ���� ����
-            //Vector3 dir = (player.position - transform.position).normalized;
-
-            ////// ĳ���� ��Ʈ�ѷ��� �̿��� �̵��ϱ�
-            //cc.Move(dir * moveSpeed * Time.deltaTime);
-
 
 
             // ������̼����� �����ϴ� �ּ� �Ÿ��� ���� ���� �Ÿ��� �����Ѵ�.
@@ -298,7 +281,7 @@ public class BossFSM : MonoBehaviour
 
     void Skill1()
     {
-        if (bb)
+        if (activeSkill1)
         {
             StartCoroutine(Skill1Start());
         }
@@ -307,7 +290,7 @@ public class BossFSM : MonoBehaviour
     IEnumerator Skill1Start()
     {
         smith.isStopped = true;
-        bb = false;
+        activeSkill1 = false;
         yield return new WaitForSeconds(1f);
         int bulletCount = 8;
         float interval = 0.2f;
@@ -327,13 +310,13 @@ public class BossFSM : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         smith.isStopped = false;
-        bb = true;
+        activeSkill1 = true;
         m_State = EnemyState.Attack;
         //print("Skill1 -> Move");
     }
     void Skill2()
     {
-        if (aa)
+        if (activeSkill2)
         {
             StartCoroutine(Skill2Start());
         }
@@ -343,7 +326,7 @@ public class BossFSM : MonoBehaviour
     IEnumerator Skill2Start()
     {
         skilling = true;
-        aa = false;
+        activeSkill2 = false;
         // ��� ���߱�
         smith.isStopped = true;
         Vector3 dashDirection = transform.forward;
@@ -388,7 +371,7 @@ public class BossFSM : MonoBehaviour
         P2stun = false;
         P3stun = false;
         // Move ���·� ���ư���
-        aa = true;
+        activeSkill2 = true;
         //print("Skill2 -> Move");
         smith.isStopped = false;
         smith.speed = moveSpeed; // ���� �ӵ��� ����
